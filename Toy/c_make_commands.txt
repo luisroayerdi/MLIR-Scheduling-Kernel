@@ -1,2 +1,0 @@
-Toy Tutorial:
-cmake --build cmake --build build --target toyc-ch1
