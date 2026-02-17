@@ -282,15 +282,6 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Use new libstdc++ CXX11 ABI
 GLIBCXX_USE_CXX11_ABI:BOOL=OFF
 
-//Value Computed by CMake
-HELLO_MLIR_BINARY_DIR:STATIC=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build
-
-//Value Computed by CMake
-HELLO_MLIR_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-HELLO_MLIR_SOURCE_DIR:STATIC=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR
-
 //Path to a file.
 LIBXML2_INCLUDE_DIR:PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/libxml2
 

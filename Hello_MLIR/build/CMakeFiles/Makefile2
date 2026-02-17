@@ -465,12 +465,12 @@ CMakeFiles/mlir-doc.dir/clean:
 include/MyDialect/CMakeFiles/MyDialectIncGen.dir/all:
 	$(MAKE) $(MAKESILENT) -f include/MyDialect/CMakeFiles/MyDialectIncGen.dir/build.make include/MyDialect/CMakeFiles/MyDialectIncGen.dir/depend
 	$(MAKE) $(MAKESILENT) -f include/MyDialect/CMakeFiles/MyDialectIncGen.dir/build.make include/MyDialect/CMakeFiles/MyDialectIncGen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=2 "Built target MyDialectIncGen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=2,3,4,5 "Built target MyDialectIncGen"
 .PHONY : include/MyDialect/CMakeFiles/MyDialectIncGen.dir/all
 
 # Build rule for subdir invocation for target.
 include/MyDialect/CMakeFiles/MyDialectIncGen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 include/MyDialect/CMakeFiles/MyDialectIncGen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 0
 .PHONY : include/MyDialect/CMakeFiles/MyDialectIncGen.dir/rule
@@ -482,7 +482,7 @@ MyDialectIncGen: include/MyDialect/CMakeFiles/MyDialectIncGen.dir/rule
 # codegen rule for target.
 include/MyDialect/CMakeFiles/MyDialectIncGen.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f include/MyDialect/CMakeFiles/MyDialectIncGen.dir/build.make include/MyDialect/CMakeFiles/MyDialectIncGen.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=2 "Finished codegen for target MyDialectIncGen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=2,3,4,5 "Finished codegen for target MyDialectIncGen"
 .PHONY : include/MyDialect/CMakeFiles/MyDialectIncGen.dir/codegen
 
 # clean rule for target.
@@ -499,12 +499,12 @@ lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/all: CMakeFiles/mlir-generic-head
 lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/all: include/MyDialect/CMakeFiles/MyDialectIncGen.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/build.make lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/build.make lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=3 "Built target obj.MLIRMyDialect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=6 "Built target obj.MLIRMyDialect"
 .PHONY : lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/all
 
 # Build rule for subdir invocation for target.
 lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 0
 .PHONY : lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/rule
@@ -518,7 +518,7 @@ lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/codegen: CMakeFiles/mlir-headers.
 lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/codegen: CMakeFiles/mlir-generic-headers.dir/all
 lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/codegen: include/MyDialect/CMakeFiles/MyDialectIncGen.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/build.make lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=3 "Finished codegen for target obj.MLIRMyDialect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=6 "Finished codegen for target obj.MLIRMyDialect"
 .PHONY : lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/codegen
 
 # clean rule for target.
@@ -541,7 +541,7 @@ lib/MyDialect/CMakeFiles/MLIRMyDialect.dir/all: lib/MyDialect/CMakeFiles/obj.MLI
 
 # Build rule for subdir invocation for target.
 lib/MyDialect/CMakeFiles/MLIRMyDialect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/MyDialect/CMakeFiles/MLIRMyDialect.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 0
 .PHONY : lib/MyDialect/CMakeFiles/MLIRMyDialect.dir/rule
@@ -575,7 +575,7 @@ lib/MyDialect/CMakeFiles/install-MLIRMyDialect.dir/all: lib/MyDialect/CMakeFiles
 
 # Build rule for subdir invocation for target.
 lib/MyDialect/CMakeFiles/install-MLIRMyDialect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/MyDialect/CMakeFiles/install-MLIRMyDialect.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 0
 .PHONY : lib/MyDialect/CMakeFiles/install-MLIRMyDialect.dir/rule
@@ -607,7 +607,7 @@ lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/all: lib/MyDialect/C
 
 # Build rule for subdir invocation for target.
 lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 0
 .PHONY : lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/rule

@@ -67,18 +67,42 @@ include include/MyDialect/CMakeFiles/MyDialectIncGen.dir/compiler_depend.make
 include include/MyDialect/CMakeFiles/MyDialectIncGen.dir/progress.make
 
 include/MyDialect/CMakeFiles/MyDialectIncGen: include/MyDialect/MyDialect.h.inc
+include/MyDialect/CMakeFiles/MyDialectIncGen: include/MyDialect/MyDialect.cpp.inc
+include/MyDialect/CMakeFiles/MyDialectIncGen: include/MyDialect/MyDialectDialect.h.inc
+include/MyDialect/CMakeFiles/MyDialectIncGen: include/MyDialect/MyDialectDialect.cpp.inc
+
+include/MyDialect/MyDialect.cpp.inc: /Users/luisroayerdi/Coding/llvm-project/build/bin/mlir-tblgen
+include/MyDialect/MyDialect.cpp.inc: /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td
+include/MyDialect/MyDialect.cpp.inc: /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building MyDialect.cpp.inc..."
+	cd /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include/MyDialect && /Users/luisroayerdi/Coding/llvm-project/build/bin/mlir-tblgen -gen-op-defs --op-exclude-regex=BytecodeOpInterface -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect -I/include -I/Users/luisroayerdi/Coding/llvm-project/llvm/include -I/Users/luisroayerdi/Coding/llvm-project/build/include -I/Users/luisroayerdi/Coding/llvm-project/mlir/include -I/Users/luisroayerdi/Coding/llvm-project/build/tools/mlir/include -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td --write-if-changed -o /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include/MyDialect/MyDialect.cpp.inc
 
 include/MyDialect/MyDialect.h.inc: /Users/luisroayerdi/Coding/llvm-project/build/bin/mlir-tblgen
 include/MyDialect/MyDialect.h.inc: /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td
 include/MyDialect/MyDialect.h.inc: /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building MyDialect.h.inc..."
-	cd /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include/MyDialect && /Users/luisroayerdi/Coding/llvm-project/build/bin/mlir-tblgen -gen-op-decls -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect -I/Users/luisroayerdi/Coding/llvm-project/llvm/include -I/Users/luisroayerdi/Coding/llvm-project/build/include -I/Users/luisroayerdi/Coding/llvm-project/mlir/include -I/Users/luisroayerdi/Coding/llvm-project/build/tools/mlir/include -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td --write-if-changed -o /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include/MyDialect/MyDialect.h.inc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building MyDialect.h.inc..."
+	cd /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include/MyDialect && /Users/luisroayerdi/Coding/llvm-project/build/bin/mlir-tblgen -gen-op-decls --op-exclude-regex=BytecodeOpInterface -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect -I/include -I/Users/luisroayerdi/Coding/llvm-project/llvm/include -I/Users/luisroayerdi/Coding/llvm-project/build/include -I/Users/luisroayerdi/Coding/llvm-project/mlir/include -I/Users/luisroayerdi/Coding/llvm-project/build/tools/mlir/include -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td --write-if-changed -o /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include/MyDialect/MyDialect.h.inc
+
+include/MyDialect/MyDialectDialect.cpp.inc: /Users/luisroayerdi/Coding/llvm-project/build/bin/mlir-tblgen
+include/MyDialect/MyDialectDialect.cpp.inc: /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td
+include/MyDialect/MyDialectDialect.cpp.inc: /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building MyDialectDialect.cpp.inc..."
+	cd /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include/MyDialect && /Users/luisroayerdi/Coding/llvm-project/build/bin/mlir-tblgen -gen-dialect-defs -dialect=my -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect -I/include -I/Users/luisroayerdi/Coding/llvm-project/llvm/include -I/Users/luisroayerdi/Coding/llvm-project/build/include -I/Users/luisroayerdi/Coding/llvm-project/mlir/include -I/Users/luisroayerdi/Coding/llvm-project/build/tools/mlir/include -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td --write-if-changed -o /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include/MyDialect/MyDialectDialect.cpp.inc
+
+include/MyDialect/MyDialectDialect.h.inc: /Users/luisroayerdi/Coding/llvm-project/build/bin/mlir-tblgen
+include/MyDialect/MyDialectDialect.h.inc: /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td
+include/MyDialect/MyDialectDialect.h.inc: /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building MyDialectDialect.h.inc..."
+	cd /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include/MyDialect && /Users/luisroayerdi/Coding/llvm-project/build/bin/mlir-tblgen -gen-dialect-decls -dialect=my -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect -I/include -I/Users/luisroayerdi/Coding/llvm-project/llvm/include -I/Users/luisroayerdi/Coding/llvm-project/build/include -I/Users/luisroayerdi/Coding/llvm-project/mlir/include -I/Users/luisroayerdi/Coding/llvm-project/build/tools/mlir/include -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include -I/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/MyDialect.td --write-if-changed -o /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/include/MyDialect/MyDialectDialect.h.inc
 
 include/MyDialect/CMakeFiles/MyDialectIncGen.dir/codegen:
 .PHONY : include/MyDialect/CMakeFiles/MyDialectIncGen.dir/codegen
 
 MyDialectIncGen: include/MyDialect/CMakeFiles/MyDialectIncGen
+MyDialectIncGen: include/MyDialect/MyDialect.cpp.inc
 MyDialectIncGen: include/MyDialect/MyDialect.h.inc
+MyDialectIncGen: include/MyDialect/MyDialectDialect.cpp.inc
+MyDialectIncGen: include/MyDialect/MyDialectDialect.h.inc
 MyDialectIncGen: include/MyDialect/CMakeFiles/MyDialectIncGen.dir/build.make
 .PHONY : MyDialectIncGen
 
