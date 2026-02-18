@@ -42,3 +42,16 @@
 /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/lib/MyDialect/CMakeFiles/install.dir
 /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/lib/MyDialect/CMakeFiles/install/local.dir
 /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/lib/MyDialect/CMakeFiles/install/strip.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/CMakeFiles/edit_cache.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/CMakeFiles/rebuild_cache.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/CMakeFiles/list_install_components.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/CMakeFiles/install.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/CMakeFiles/install/local.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/CMakeFiles/install/strip.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/my-opt/CMakeFiles/my-opt.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/my-opt/CMakeFiles/edit_cache.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/my-opt/CMakeFiles/rebuild_cache.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/my-opt/CMakeFiles/list_install_components.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/my-opt/CMakeFiles/install.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/my-opt/CMakeFiles/install/local.dir
+/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/tools/my-opt/CMakeFiles/install/strip.dir

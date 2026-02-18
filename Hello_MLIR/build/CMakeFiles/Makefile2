@@ -65,16 +65,19 @@ CMAKE_BINARY_DIR = /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/
 # The main recursive "all" target.
 all: include/all
 all: lib/all
+all: tools/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: include/codegen
 codegen: lib/codegen
+codegen: tools/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
 preinstall: include/preinstall
 preinstall: lib/preinstall
+preinstall: tools/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -89,6 +92,7 @@ clean: CMakeFiles/mlir-generic-headers.dir/clean
 clean: CMakeFiles/mlir-doc.dir/clean
 clean: include/clean
 clean: lib/clean
+clean: tools/clean
 .PHONY : clean
 
 #=============================================================================
@@ -169,6 +173,44 @@ lib/MyDialect/clean: lib/MyDialect/CMakeFiles/MLIRMyDialect.dir/clean
 lib/MyDialect/clean: lib/MyDialect/CMakeFiles/install-MLIRMyDialect.dir/clean
 lib/MyDialect/clean: lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/clean
 .PHONY : lib/MyDialect/clean
+
+#=============================================================================
+# Directory level rules for directory tools
+
+# Recursive "all" directory target.
+tools/all: tools/my-opt/all
+.PHONY : tools/all
+
+# Recursive "codegen" directory target.
+tools/codegen: tools/my-opt/codegen
+.PHONY : tools/codegen
+
+# Recursive "preinstall" directory target.
+tools/preinstall: tools/my-opt/preinstall
+.PHONY : tools/preinstall
+
+# Recursive "clean" directory target.
+tools/clean: tools/my-opt/clean
+.PHONY : tools/clean
+
+#=============================================================================
+# Directory level rules for directory tools/my-opt
+
+# Recursive "all" directory target.
+tools/my-opt/all: tools/my-opt/CMakeFiles/my-opt.dir/all
+.PHONY : tools/my-opt/all
+
+# Recursive "codegen" directory target.
+tools/my-opt/codegen: tools/my-opt/CMakeFiles/my-opt.dir/codegen
+.PHONY : tools/my-opt/codegen
+
+# Recursive "preinstall" directory target.
+tools/my-opt/preinstall:
+.PHONY : tools/my-opt/preinstall
+
+# Recursive "clean" directory target.
+tools/my-opt/clean: tools/my-opt/CMakeFiles/my-opt.dir/clean
+.PHONY : tools/my-opt/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/intrinsics_gen.dir
@@ -499,7 +541,7 @@ lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/all: CMakeFiles/mlir-generic-head
 lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/all: include/MyDialect/CMakeFiles/MyDialectIncGen.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/build.make lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/build.make lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=6 "Built target obj.MLIRMyDialect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=8 "Built target obj.MLIRMyDialect"
 .PHONY : lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/all
 
 # Build rule for subdir invocation for target.
@@ -518,7 +560,7 @@ lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/codegen: CMakeFiles/mlir-headers.
 lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/codegen: CMakeFiles/mlir-generic-headers.dir/all
 lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/codegen: include/MyDialect/CMakeFiles/MyDialectIncGen.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/build.make lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=6 "Finished codegen for target obj.MLIRMyDialect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=8 "Finished codegen for target obj.MLIRMyDialect"
 .PHONY : lib/MyDialect/CMakeFiles/obj.MLIRMyDialect.dir/codegen
 
 # clean rule for target.
@@ -626,6 +668,38 @@ lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/codegen: lib/MyDiale
 lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/clean:
 	$(MAKE) $(MAKESILENT) -f lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/build.make lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/clean
 .PHONY : lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/clean
+
+#=============================================================================
+# Target rules for target tools/my-opt/CMakeFiles/my-opt.dir
+
+# All Build rule for target.
+tools/my-opt/CMakeFiles/my-opt.dir/all: lib/MyDialect/CMakeFiles/MLIRMyDialect.dir/all
+	$(MAKE) $(MAKESILENT) -f tools/my-opt/CMakeFiles/my-opt.dir/build.make tools/my-opt/CMakeFiles/my-opt.dir/depend
+	$(MAKE) $(MAKESILENT) -f tools/my-opt/CMakeFiles/my-opt.dir/build.make tools/my-opt/CMakeFiles/my-opt.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=6,7 "Built target my-opt"
+.PHONY : tools/my-opt/CMakeFiles/my-opt.dir/all
+
+# Build rule for subdir invocation for target.
+tools/my-opt/CMakeFiles/my-opt.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/my-opt/CMakeFiles/my-opt.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles 0
+.PHONY : tools/my-opt/CMakeFiles/my-opt.dir/rule
+
+# Convenience name for target.
+my-opt: tools/my-opt/CMakeFiles/my-opt.dir/rule
+.PHONY : my-opt
+
+# codegen rule for target.
+tools/my-opt/CMakeFiles/my-opt.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tools/my-opt/CMakeFiles/my-opt.dir/build.make tools/my-opt/CMakeFiles/my-opt.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/build/CMakeFiles --progress-num=6,7 "Finished codegen for target my-opt"
+.PHONY : tools/my-opt/CMakeFiles/my-opt.dir/codegen
+
+# clean rule for target.
+tools/my-opt/CMakeFiles/my-opt.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tools/my-opt/CMakeFiles/my-opt.dir/build.make tools/my-opt/CMakeFiles/my-opt.dir/clean
+.PHONY : tools/my-opt/CMakeFiles/my-opt.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

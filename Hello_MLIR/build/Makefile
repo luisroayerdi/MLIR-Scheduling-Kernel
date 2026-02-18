@@ -343,6 +343,19 @@ install-MLIRMyDialect-stripped/fast:
 	$(MAKE) $(MAKESILENT) -f lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/build.make lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/build
 .PHONY : install-MLIRMyDialect-stripped/fast
 
+#=============================================================================
+# Target rules for targets named my-opt
+
+# Build rule for target.
+my-opt: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 my-opt
+.PHONY : my-opt
+
+# fast build rule for target.
+my-opt/fast:
+	$(MAKE) $(MAKESILENT) -f tools/my-opt/CMakeFiles/my-opt.dir/build.make tools/my-opt/CMakeFiles/my-opt.dir/build
+.PHONY : my-opt/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -368,6 +381,7 @@ help:
 	@echo "... target_parser_gen"
 	@echo "... vt_gen"
 	@echo "... MLIRMyDialect"
+	@echo "... my-opt"
 	@echo "... obj.MLIRMyDialect"
 .PHONY : help
 

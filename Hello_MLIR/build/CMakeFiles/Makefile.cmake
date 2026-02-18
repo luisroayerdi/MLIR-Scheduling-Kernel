@@ -15,6 +15,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/include/MyDialect/CMakeLists.txt"
   "/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/lib/CMakeLists.txt"
   "/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/lib/MyDialect/CMakeLists.txt"
+  "/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/tools/CMakeLists.txt"
+  "/Users/luisroayerdi/Coding/MLIR-Scheduling-Kernel/Hello_MLIR/tools/my-opt/CMakeLists.txt"
   "/Users/luisroayerdi/Coding/llvm-project/build/lib/cmake/llvm/AddLLVM.cmake"
   "/Users/luisroayerdi/Coding/llvm-project/build/lib/cmake/llvm/CheckCompilerVersion.cmake"
   "/Users/luisroayerdi/Coding/llvm-project/build/lib/cmake/llvm/CheckProblematicConfigurations.cmake"
@@ -102,6 +104,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "include/MyDialect/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/MyDialect/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "tools/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "tools/my-opt/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -120,4 +124,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "lib/MyDialect/CMakeFiles/MLIRMyDialect.dir/DependInfo.cmake"
   "lib/MyDialect/CMakeFiles/install-MLIRMyDialect.dir/DependInfo.cmake"
   "lib/MyDialect/CMakeFiles/install-MLIRMyDialect-stripped.dir/DependInfo.cmake"
+  "tools/my-opt/CMakeFiles/my-opt.dir/DependInfo.cmake"
   )
