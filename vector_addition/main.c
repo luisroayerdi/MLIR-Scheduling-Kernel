@@ -12,7 +12,7 @@ int main() {
     // Initialize arrays
     for (int i = 0; i < 1024; i++) {
         a[i] = i * 1.0f;
-        b[i] = i * 2.0f;
+        b[i] = i * 3.0f;
     }
     
     // Call MLIR function (memref descriptor: ptr, ptr, offset, size, stride)
@@ -23,6 +23,10 @@ int main() {
     // Verify
     printf("c[0] = %f (expected 0)\n", c[0]);
     printf("c[10] = %f (expected 30)\n", c[10]);
+
+    for (int i = 0; i < 1024; i++) {
+        printf("%f \n",c[i]);
+    }
     
     return 0;
 }
