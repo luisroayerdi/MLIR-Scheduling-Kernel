@@ -514,7 +514,7 @@ Number of heads: 16
 
 ### 4.1 Development Phases (Currently working on Phase 3)
 
-**Phase 1: Foundation
+Phase 1: Foundation
 
 - Set up MLIR build environment
 - Implement simple matmul lowering (validation)
