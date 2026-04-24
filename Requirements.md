@@ -605,7 +605,7 @@ Ablation means testing each pass independently to measure its contribution. We p
 
 This ablation study is the research contribution. It answers:
 
-- Which passes contribute most to performance?
+- Which passes contribut most to performance?
 - What speedup is achievable with compilers?
 - Where is the performance gap vs hand-tuned code?
 
