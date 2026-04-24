@@ -1,0 +1,189 @@
+# TRADEOFFS.md — MLIR Attention Pipeline
+
+Living document. One entry per non-obvious design decision.
+Updated as passes are implemented.
+
+---
+
+## Dialect: `attention.fused` includes V
+
+**Decision:** `attention.fused` takes Q, K, V, scale, mask, output — the full
+attention computation, not just QK + softmax.
+
+**Why:** Without V in the fused op, the NxN attention weight matrix must be
+fully materialised between the softmax and the PV matmul. That breaks the core
+FA1 promise: tiling can never avoid the O(N²) materialisation unless P@V is
+inside the same fused region so the tiling pass can tile over K/V together.
+
+**Cost:** The op is slightly wider than the Requirements IR snippet suggests.
+The Requirements snippets are acknowledged as illustrative/simplified.
+
+---
+
+## Dialect: `scale` is an SSA f32 operand, not an attribute
+
+**Decision:** `FusedOp::scale` is `F32:$scale` (a runtime SSA value), not
+`F32Attr:$scale` (a compile-time constant).
+
+**Why:** `1/sqrt(head_dim)` is derived from a runtime-determined head dimension
+in general use. Making it an attribute would force constant-folding of head_dim
+before fusion, coupling the fusion pass to a specific call pattern.
+
+**Cost:** The assembler format is slightly more verbose
+(`scale(%val : f32)` instead of `scale = 0.125`).
+
+---
+
+## Dialect: mask is Optional, not required
+
+**Decision:** `mask` is `Optional<MemRefOf<[I1]>>:$mask` with `AttrSizedOperandSegments`.
+
+**Why:** Many attention variants (e.g., bidirectional encoder attention) have no
+mask. Requiring a dummy all-false memref would force an allocation that a
+constant-folding pass might not eliminate.
+
+**Cost:** Requires `AttrSizedOperandSegments` trait, which stores a hidden
+`operand_segment_sizes` attribute in the IR. Slightly more verbose C++ to
+check `if (Value m = getMask())`.
+
+---
+
+## Fusion pass: memref-based pattern matching via buffer SSA values
+
+**Decision:** The fusion pass matches the 5-op sequence by tracing which ops
+write to which memref SSA values (using `DestinationStyleOpInterface::getDpsInits()`),
+rather than requiring tensor semantics with pure SSA results.
+
+**Why:** The rest of the pipeline uses memrefs for explicit memory control.
+Switching to tensors for fusion then bufferizing adds a dependency on
+one-shot-bufferize, which requires bufferization interfaces for every custom op.
+
+**Cost:** The pattern assumes each intermediate buffer is written by exactly one
+`linalg.GenericOp` or `linalg.SoftmaxOp`. Functions with aliased buffers or
+multiple writers will not match. This is acceptable for a research prototype
+with structured input IR.
+
+---
+
+## Fusion pass: scale extracted from linalg.generic body
+
+**Decision:** The scale value is read from the body of the scale generic by
+finding the first `arith.mulf` whose one operand is not a block argument.
+
+**Why:** The scale is an outer SSA value captured by the region. There is no
+dedicated operand slot for it in `linalg.generic` (it's not in `ins`).
+
+**Cost:** Fragile: only works if the scale generic body is exactly
+`arith.mulf(block_arg, outer_scale)`. If the scale generic applies additional
+operations (e.g., negation), extraction fails. Acceptable for the structured
+test input; a production pass would need a more robust body analysis.
+
+---
+
+## Tiling pass: fully expands `attention.fused` (no remaining fused ops)
+
+**Decision:** Pass 2 both tiles AND lowers `attention.fused` to linalg/affine.
+After Pass 2 no `attention.fused` ops exist.
+
+**Why:** The Requirements pipeline is
+`--fusion-pass --tiling-pass | mlir-cpu-runner`.
+`mlir-cpu-runner` cannot interpret `attention.fused`; if tiling only added loops
+but kept the inner `attention.fused` intact, a third lowering pass would be needed.
+Keeping the lowering inside the tiling pass matches the two-pass pipeline exactly.
+
+**Cost:** The tiling pass does two conceptual things (tiling + lowering).
+If we later want to tile without lowering (e.g., to inspect the tiled IR before
+expansion), we would need to split it into two passes.
+
+---
+
+## Tiling pass: online softmax is part of tiling, not fusion
+
+**Decision:** The online softmax accumulation (running max `m` and sum `l`) is
+introduced by Pass 2 (Tiling), not Pass 1 (Fusion).
+
+**Why:** Online softmax is a property of *tiled* execution — it only makes sense
+when the attention row is processed in pieces. Introducing it at fusion time
+would force the fused op to carry extra state even for the untiled (single-tile)
+case, complicating the op definition.
+
+**Cost:** The fusion pass output (`attention.fused`) does not itself implement
+online softmax. Users of the fused op without tiling get standard (non-online)
+softmax semantics; correctness requires tiling before CPU execution.
+
+---
+
+## Tiling pass: static shapes only (initial implementation)
+
+**Decision:** The tiling pass asserts static memref shapes and returns
+`emitOpError` for dynamic shapes.
+
+**Why:** Affine loops (`affine.for`) require compile-time-constant bounds.
+Supporting dynamic shapes would require `scf.for` loops plus runtime checks
+that `seq % tile_size == 0`, adding significant complexity.
+
+**Cost:** All test inputs must have shapes that are multiples of `tile_size`.
+Dynamic sequence lengths (common in production transformers with padding) are
+not supported; this is a known limitation for future work.
+
+---
+
+## Tiling pass: `memref.alloca` for tile-local buffers
+
+**Decision:** All tile-local working buffers (O_acc, m_acc, l_acc, S_tile,
+P_tile, etc.) use `memref.alloca` (stack allocation).
+
+**Why:** `memref.alloca` avoids the need for explicit `memref.dealloc` calls
+inside loop bodies, keeping generated IR simpler. LLVM typically hoists allocas
+to the function entry, so the effective lifetime is the entire function.
+
+**Cost:** The stack frame grows with tile size. At `tile_size=32` the total
+allocation is ≈17 KB, well within typical 8 MB stack limits. At `tile_size=128`
+it is ≈161 KB — still within limits but close to the danger zone on some systems.
+For CPU correctness testing, use `--tile-size=32` or `--tile-size=64`.
+
+---
+
+## Driver: `registerAllDialects`
+
+**Decision:** `attention-opt` calls `mlir::registerAllDialects(registry)` rather
+than registering dialects individually.
+
+**Why:** The 5-pass pipeline uses linalg, memref, affine, arith, math, vector,
+func, and (future) nvgpu dialects. Enumerating them all would require updating
+the driver every time a new dialect is added to a pass.
+
+**Cost:** The binary links and registers dialects it may not use (e.g., SPIRV,
+OpenMP). This is a minor binary-size increase acceptable for a research tool.
+Production tooling would use selective registration.
+
+---
+
+## GPU lowering: deferred until hardware is available
+
+**Decision:** Pass 5 (GPU Backend Lowering / nvgpu / tensor cores) is designed
+but not yet implemented.
+
+**Why:** No GPU hardware is available in the current development environment.
+The target is NVIDIA A100 via university HPCC or cloud compute. CPU correctness
+validation (Passes 1–4) is achievable now; GPU performance measurement requires
+an LLVM build with NVPTX backend (`-DLLVM_TARGETS_TO_BUILD=NVPTX`) and actual
+hardware to profile.
+
+**Cost:** Pass 5 performance numbers cannot be collected until HPCC access is
+established. The ablation study will be incomplete until then.
+
+---
+
+## Tile size default: 128
+
+**Decision:** Default `--tile-size=128`.
+
+**Why:** 128×128 tiles of f32 fit comfortably in A100 SRAM (192 KB:
+128×128×4 bytes = 64 KB per tile, 3 tiles needed ≈ 192 KB). This is the
+hardware-optimal size for the primary target.
+
+**Cost:** On CPU (correctness testing only), 128 is unnecessarily large and
+puts pressure on the stack. The `--tile-size=32` option should be used for CPU
+tests. The default is intentionally kept at 128 to avoid forgetting to change
+it when moving to GPU.
